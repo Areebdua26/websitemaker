@@ -11,15 +11,15 @@
   <style>
     /* 2025 Light Futuristic Color Scheme */
     :root {
-      --primary: #6C5CE7;
-      --secondary: #00CEFF;
-      --accent: #FF3E80;
+      --primary: #1f4e79;
+      --secondary: #3b82a0;
+      --accent: #b7791f;
       --dark: #2D2D4E;
       --light: #FFFFFF;
       --background: #F8F9FA;
       --text: #333333;
       --text-light: #666666;
-      --neon: #00F5A0;
+      --neon: #2f855a;
       --glass: rgba(255, 255, 255, 0.8);
       --glass-border: rgba(255, 255, 255, 0.9);
       --dark-glass: rgba(248, 249, 250, 0.9);
@@ -57,8 +57,8 @@
       top: 0;
       width: 100%;
       background: var(--glass);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       padding: 1.2rem 5%;
       display: flex;
       justify-content: space-between;
@@ -79,7 +79,7 @@
       font-size: 1.8rem;
       text-decoration: none;
       font-family: 'Space Grotesk', sans-serif;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: var(--primary);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -179,8 +179,8 @@
     /* Futuristic Glassmorphism Effect */
     .glass-card {
       background: var(--glass);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       border-radius: 20px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       border: 1px solid var(--glass-border);
@@ -223,7 +223,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
+      display: none;
     }
 
     .particle {
@@ -231,7 +231,7 @@
       background: var(--neon);
       border-radius: 50%;
       opacity: 0.6;
-      animation: float 15s infinite linear;
+      animation: none;
     }
 
     @keyframes float {
@@ -248,7 +248,7 @@
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       padding: 5px;
       box-shadow: 0 0 40px rgba(108, 92, 231, 0.3);
-      animation: pulse 4s infinite alternate;
+      animation: none;
     }
 
     @keyframes pulse {
@@ -269,7 +269,7 @@
       font-size: 3.5rem;
       margin-bottom: 1rem;
       font-weight: 700;
-      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      background: var(--dark);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -333,7 +333,7 @@
       transform: translateX(-50%);
       color: var(--dark);
       font-size: 1.8rem;
-      animation: bounce 2s infinite;
+      animation: none;
       cursor: pointer;
       width: 50px;
       height: 50px;
@@ -371,7 +371,7 @@
       margin-bottom: 2rem;
       position: relative;
       display: inline-block;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: var(--primary);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -478,7 +478,7 @@
       width: 200%;
       height: 200%;
       background: radial-gradient(circle, rgba(0, 245, 160, 0.03) 0%, transparent 70%);
-      animation: rotate 20s linear infinite;
+      animation: none;
     }
 
     @keyframes rotate {
@@ -676,7 +676,7 @@
       width: 200%;
       height: 200%;
       background: radial-gradient(circle, rgba(255, 62, 128, 0.03) 0%, transparent 70%);
-      animation: rotate 30s linear infinite reverse;
+      animation: none;
       z-index: -1;
     }
 
@@ -731,8 +731,8 @@
       text-align: center;
       padding: 3rem 2rem;
       position: relative;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
@@ -745,7 +745,7 @@
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: var(--primary);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -853,8 +853,8 @@
         width: 100%;
         height: 100vh;
         background: var(--dark-glass);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
         flex-direction: column;
         gap: 1.5rem;
         padding: 6rem 2rem;
