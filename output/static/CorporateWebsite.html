@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BuildPro Corporate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(0, 34, 68, 0.95);
+      color: #fff;
+      padding: 18px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00aaff;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+        url('images/build.JPG') no-repeat center/cover;
+      height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 25px 40px;
+      border-radius: 10px;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .services-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      color: #002244;
+      position: relative;
+    }
+
+    .services-title::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: #00aaff;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+
+    .service-block {
+      display: flex;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      overflow: hidden;
+      margin-bottom: 50px;
+      transition: 0.3s ease;
+    }
+
+    .service-block:hover {
+      transform: translateY(-6px);
+    }
+
+    .service-block img {
+      width: 50%;
+      object-fit: cover;
+    }
+
+    .block-content {
+      padding: 30px;
+      width: 50%;
+    }
+
+    .block-content h3 {
+      font-size: 1.8rem;
+      color: #002244;
+      margin-bottom: 15px;
+    }
+
+    .block-content p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #002244;
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #00aaff;
+    }
+
+    footer {
+      background: #001122;
+      color: #ccc;
+      text-align: center;
+      padding: 25px 0;
+      font-size: 0.95rem;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .service-block {
+        flex-direction: column;
+      }
+
+      .service-block img,
+      .block-content {
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+        padding: 20px;
+      }
+
+      nav a {
+        margin-left: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">BuildPro</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Build the Future, Together</h1>
+  </section>
+
+  <section id="services">
+    <h2 class="services-title">Our Key Services</h2>
+
+    <div class="service-block">
+      <img src="images/education.AVIF" alt="Education Platform">
+      <div class="block-content">
+        <h3>Education Platforms</h3>
+        <p>We build learning portals and e-classroom platforms tailored to schools, institutes, and online course creators with responsive interfaces.</p>
+        <a href="edu.html" class="btn">View Demo</a>
+      </div>
+    </div>
+
+    <div class="service-block">
+      <img src="images/construction.JPG" alt="Construction Projects">
+      <div class="block-content">
+        <h3>Construction Projects</h3>
+        <p>Present your work and company profile with confidence. Our websites are crafted to highlight your services, certifications, and testimonials.</p>
+        <a href="Corporate.html" class="btn">View Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 BuildPro Solutions. Designed for excellence.
+  </footer>
+
+</body>
+</html>

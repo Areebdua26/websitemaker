@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 Layout Designs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* Header that scrolls with the page */
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        /* Navigation */
+        .layout-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .layout-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .layout-nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Layout Sections */
+        .layout-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .layout-title {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: #6a11cb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .back-to-top:hover {
+            background: #2575fc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 10px;
+        }
+
+        /* Layout 1: Minimalist Centered */
+        #minimalist {
+            text-align: center;
+            padding: 50px 30px;
+        }
+
+        #minimalist h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        #minimalist p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #6a11cb;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #2575fc;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Layout 2: Asymmetric Grid */
+        .asymmetric-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+
+        .grid-left {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .grid-right {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .grid-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #6a11cb;
+        }
+
+        /* Layout 3: Full-Screen Hero */
+        #hero {
+            padding: 0;
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Layout 4: Card-Based */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img {
+            height: 180px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Layout 5: Single Page Application */
+        .spa-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 5px;
+        }
+
+        .spa-nav a {
+            padding: 10px 20px;
+            background: #f8f9fa;
+            color: #2c3e50;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .spa-nav a:hover, .spa-nav a.active {
+            background: #6a11cb;
+            color: white;
+        }
+
+        .spa-content > div {
+            display: none;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            min-height: 200px;
+        }
+
+        .spa-content > div.active {
+            display: block;
+        }
+
+        /* Layout 6: Z-Pattern */
+        .z-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .z-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .z-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .z-nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .z-nav a:hover {
+            color: #6a11cb;
+        }
+
+        .z-main {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            gap: 40px;
+        }
+
+        .z-image {
+            flex: 1;
+            background: #2575fc;
+            height: 300px;
+            border-radius: 8px;
+        }
+
+        .z-content {
+            flex: 1;
+        }
+
+        .z-content h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .z-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Layout 7: Sidebar Navigation */
+        #sidebar {
+            padding: 0;
+            display: flex;
+            min-height: 400px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .sidebar-header {
+            padding: 0 20px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .sidebar-menu li a {
+            display: block;
+            padding: 12px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .sidebar-menu li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        /* Layout 8: Split Screen */
+        #split {
+            padding: 0;
+            height: 400px;
+        }
+
+        .split-container {
+            display: flex;
+            height: 100%;
+        }
+
+        .split-left, .split-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 40px;
+            transition: all 0.4s;
+        }
+
+        .split-left {
+            background: #3498db;
+        }
+
+        .split-right {
+            background: #e74c3c;
+        }
+
+        .split-left:hover, .split-right:hover {
+            flex: 1.5;
+        }
+
+        .split-content {
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .split-content h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        /* Layout 9: Radial Layout */
+        .radial-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            background: #6a11cb;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 10;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .orbiting-item {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: #2575fc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 0.9rem;
+            transform-origin: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .orbiting-item:hover {
+            transform: scale(1.1);
+            background: #6a11cb;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .layout-nav {
+                gap: 5px;
+            }
+            
+            .layout-nav a {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+            }
+            
+            .layout-section {
+                padding: 20px;
+            }
+            
+            .layout-title {
+                font-size: 1.4rem;
+            }
+            
+            .asymmetric-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .grid-right {
+                grid-template-columns: 1fr;
+            }
+            
+            .z-main {
+                flex-direction: column;
+            }
+            
+            #sidebar {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+            
+            .split-container {
+                flex-direction: column;
+            }
+            
+            #split {
+                height: auto;
+            }
+            
+            .split-left, .split-right {
+                padding: 30px;
+            }
+            
+            .radial-container {
+                height: 300px;
+            }
+            
+            .center-circle {
+                width: 120px;
+                height: 120px;
+                font-size: 1rem;
+            }
+            
+            .orbiting-item {
+                width: 70px;
+                height: 70px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header that scrolls with the page -->
+    <header>
+        <div class="header-content">
+            <h1>9 Layout Designs</h1>
+            <p class="subtitle">Modern web layout collection</p>
+            <nav class="layout-nav">
+                <a href="#minimalist">Minimalist</a>
+                <a href="#asymmetric">Asymmetric</a>
+                <a href="#hero">Hero</a>
+                <a href="#cards">Cards</a>
+                <a href="#spa">SPA</a>
+                <a href="#z-pattern">Z-Pattern</a>
+                <a href="#sidebar">Sidebar</a>
+                <a href="#split">Split</a>
+                <a href="#radial">Radial</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Layout 1: Minimalist Centered -->
+        <section id="minimalist" class="layout-section">
+            <h2 class="layout-title">Minimalist Centered Layout</h2>
+            <div>
+                <h2>Welcome to Minimal Design</h2>
+                <p>This layout focuses on clean design with plenty of white space and centered content for a modern, elegant look.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Layout 2: Asymmetric Grid -->
+        <section id="asymmetric" class="layout-section">
+            <h2 class="layout-title">Asymmetric Grid Layout</h2>
+            <div class="asymmetric-grid">
+                <div class="grid-left">
+                    <h2>Creative Solutions</h2>
+                    <p>This asymmetric layout creates visual interest and guides the user's eye across the content.</p>
+                </div>
+                <div class="grid-right">
+                    <div class="grid-item">
+                        <h3>Service One</h3>
+                        <p>Description of the first service offered by your company.</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Service Two</h3>
+                        <p>Description of the second service offered by your company.</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Service Three</h3>
+                        <p>Description of the third service offered by your company.</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>Service Four</h3>
+                        <p>Description of the fourth service offered by your company.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout 3: Full-Screen Hero -->
+        <section id="hero" class="layout-section">
+            <h2 class="layout-title">Full-Screen Hero Layout</h2>
+            <div style="height: 450px; background: linear-gradient(45deg, #6a11cb, #2575fc); border-radius: 10px;"></div>
+            <div class="hero-content">
+                <h2>Discover Amazing Experiences</h2>
+                <p>This full-screen hero section creates a dramatic entrance with a captivating background and clear call-to-action.</p>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+        </section>
+
+        <!-- Layout 4: Card-Based -->
+        <section id="cards" class="layout-section">
+            <h2 class="layout-title">Card-Based Layout</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3>Card Title One</h3>
+                        <p>This is a description of the first card. Card layouts are excellent for presenting multiple options.</p>
+                        <a href="#">Read more →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3>Card Title Two</h3>
+                        <p>This is a description of the second card. Card layouts are excellent for presenting multiple options.</p>
+                        <a href="#">Read more →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-content">
+                        <h3>Card Title Three</h3>
+                        <p>This is a description of the third card. Card layouts are excellent for presenting multiple options.</p>
+                        <a href="#">Read more →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout 5: Single Page Application Style -->
+        <section id="spa" class="layout-section">
+            <h2 class="layout-title">Single Page Application Style</h2>
+            <div class="spa-nav">
+                <a href="#tab1" class="active">Home</a>
+                <a href="#tab2">About</a>
+                <a href="#tab3">Services</a>
+                <a href="#tab4">Contact</a>
+            </div>
+            <div class="spa-content">
+                <div id="tab1" class="active">
+                    <h3>Welcome to our SPA</h3>
+                    <p>This layout mimics the behavior of a single page application where content changes without reloading the page.</p>
+                    <p>Click on the tabs above to see the content change.</p>
+                </div>
+                <div id="tab2">
+                    <h3>About Our Company</h3>
+                    <p>We are a innovative team dedicated to creating amazing web experiences for our clients.</p>
+                </div>
+                <div id="tab3">
+                    <h3>Our Services</h3>
+                    <p>We offer web design, development, and digital marketing services to help your business grow.</p>
+                </div>
+                <div id="tab4">
+                    <h3>Contact Us</h3>
+                    <p>Get in touch with us to discuss how we can help with your next project.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout 6: Z-Pattern -->
+        <section id="z-pattern" class="layout-section">
+            <h2 class="layout-title">Z-Pattern Layout</h2>
+            <div class="z-container">
+                <div class="z-header">
+                    <div class="z-logo">Company Name</div>
+                    <div class="z-nav">
+                        <a href="#">Home</a>
+                        <a href="#">Products</a>
+                        <a href="#">About</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="z-main">
+                    <div class="z-image"></div>
+                    <div class="z-content">
+                        <h2>Featured Product</h2>
+                        <p>This layout follows the natural Z-pattern of how users scan content on a webpage.</p>
+                        <p>The product description goes here, highlighting key features and benefits.</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                <div class="z-footer">
+                    <a href="#" class="btn">Checkout</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout 7: Sidebar Navigation -->
+        <section id="sidebar" class="layout-section">
+            <h2 class="layout-title">Sidebar Navigation Layout</h2>
+            <div class="sidebar">
+                <div class="sidebar-header">
+                    <h3>Dashboard</h3>
+                </div>
+                <ul class="sidebar-menu">
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Messages</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+            <div class="main-content">
+                <h2>Dashboard Overview</h2>
+                <p>This layout features a sidebar navigation with a main content area, commonly used for admin panels and dashboards.</p>
+                <p>You can see your recent activity, statistics, and notifications here.</p>
+                <div class="card-container" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 20px;">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Users</h3>
+                            <p>1,248</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Sales</h3>
+                            <p>$24,894</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Orders</h3>
+                            <p>384</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout 8: Split Screen -->
+        <section id="split" class="layout-section">
+            <h2 class="layout-title">Split Screen Layout</h2>
+            <div class="split-container">
+                <div class="split-left">
+                    <div class="split-content">
+                        <h2>For Students</h2>
+                        <p>Access educational resources, courses, and learning materials tailored for students.</p>
+                        <a href="#" class="btn">Student Login</a>
+                    </div>
+                </div>
+                <div class="split-right">
+                    <div class="split-content">
+                        <h2>For Teachers</h2>
+                        <p>Manage your courses, track student progress, and access teaching resources.</p>
+                        <a href="#" class="btn">Teacher Login</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Layout 9: Radial Layout -->
+        <section id="radial" class="layout-section">
+            <h2 class="layout-title">Radial Layout</h2>
+            <div class="radial-container">
+                <div class="center-circle">My Portfolio</div>
+                <div class="orbiting-item" style="top: 20%; left: 30%;">Web Design</div>
+                <div class="orbiting-item" style="top: 20%; right: 30%;">Graphic Design</div>
+                <div class="orbiting-item" style="top: 60%; right: 20%;">Photography</div>
+                <div class="orbiting-item" style="top: 60%; left: 20%;">Writing</div>
+                <div class="orbiting-item" style="top: 40%; right: 10%;">Video</div>
+                <div class="orbiting-item" style="top: 40%; left: 10%;">Music</div>
+            </div>
+        </section>
+
+        <a href="#" class="back-to-top">Back to Top</a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Created with ❤️ | 9 Layout Designs Collection</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple tab functionality for SPA layout
+        document.querySelectorAll('.spa-nav a').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelectorAll('.spa-nav a').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.spa-content > div').forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.querySelector(tab.getAttribute('href')).classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

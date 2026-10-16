@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elegant Dark Mode Blog</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    :root {
+      --primary: #ff4c60;
+      --background: #121212;
+      --card-bg: rgba(255 255 255 / 0.1);
+      --text-color: #eee;
+      --muted: #bbb;
+      --shadow: rgba(255 76 96, 0.3);
+      --max-width: 960px;
+      --font-sans: 'Poppins', sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text-color);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      user-select: none;
+    }
+    header {
+      padding: 18px 20px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: var(--primary);
+      text-shadow: 0 0 5px var(--primary);
+      letter-spacing: 2px;
+      border-bottom: 1px solid rgba(255 255 255 / 0.1);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      background: rgba(18, 18, 18, 0.7);
+      z-index: 1000;
+    }
+    .container {
+      max-width: var(--max-width);
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+    .post-list {
+      display: grid;
+      gap: 28px;
+    }
+    article.post {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 20px var(--shadow);
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      border: 1px solid rgba(255 255 255 / 0.12);
+    }
+    article.post:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 32px var(--shadow);
+      border-color: var(--primary);
+    }
+    article.post h2 {
+      margin-top: 0;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-weight: 500;
+      user-select: text;
+    }
+    .excerpt {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 18px;
+    }
+    a.read-more {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    a.read-more:hover {
+      border-color: var(--primary);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 18px 0 40px;
+      user-select: none;
+      border-top: 1px solid rgba(255 255 255 / 0.1);
+    }
+    @media (max-width: 640px) {
+      .container {
+        margin: 24px 16px;
+      }
+      article.post h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Elegant Dark Blog
+  </header>
+  <div class="container">
+    <div class="post-list">
+      <article class="post" tabindex="0">
+        <h2>Mastering Night Productivity</h2>
+        <div class="meta">Sep 12, 2025 — 6 min read</div>
+        <p class="excerpt">How working in low-light can improve focus and creativity, and tips for night owls.</p>
+        <a class="read-more" href="#">Read more →</a>
+      </article>
+      <article class="post" tabindex="0">
+        <h2>Glassmorphism in UI Design</h2>
+        <div class="meta">Aug 23, 2025 — 7 min read</div>
+        <p class="excerpt">Exploring the latest trend of glass-like translucency in modern interfaces.</p>
+        <a class="read-more" href="#">Read more →</a>
+      </article>
+      <article class="post" tabindex="0">
+        <h2>Deep Focus Techniques</h2>
+        <div class="meta">Jul 15, 2025 — 5 min read</div>
+        <p class="excerpt">Simple techniques to get into deep work state and avoid distractions.</p>
+        <a class="read-more" href="#">Read more →</a>
+      </article>
+    </div>
+  </div>
+  <footer>
+    © 2025 Elegant Dark Blog
+  </footer>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magazine Style Blog</title>
+  <style>
+    :root {
+      --primary: #e63946;
+      --accent: #f1faee;
+      --background: #fff;
+      --text-color: #222;
+      --muted: #555;
+      --max-width: 1100px;
+      --font-sans: 'Roboto', Arial, sans-serif;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: var(--accent);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 16px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 1.1px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffb4a2;
+    }
+    .categories {
+      max-width: var(--max-width);
+      margin: 24px auto 12px;
+      padding: 0 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .category-tag {
+      background: var(--primary);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+    .category-tag:hover {
+      background: #a82e34;
+    }
+    .grid {
+      max-width: var(--max-width);
+      margin: 0 auto 50px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(230, 57, 70, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(230, 57, 70, 0.3);
+    }
+    .card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-bottom: 4px solid var(--primary);
+      transition: transform 0.3s ease;
+    }
+    .card:hover img {
+      transform: scale(1.1);
+    }
+    .card-body {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-body h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+    .card-body p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    footer {
+      text-align: center;
+      color: #999;
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+      user-select: none;
+    }
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      Magzine Blog
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Subscribe</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="categories" aria-label="Blog Categories">
+    <div class="category-tag">Technology</div>
+    <div class="category-tag">Culture</div>
+    <div class="category-tag">Business</div>
+    <div class="category-tag">Travel</div>
+  </section>
+
+  <section class="grid" aria-label="Blog Posts">
+    <article class="card" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="AI Illustration" />
+      <div class="card-body">
+        <h3>AI in Small Businesses</h3>
+        <p>Tools that are reshaping local shops and remote teams — practical tips and case studies.</p>
+        <div class="meta">Aug 7 • 8 min</div>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Travel Island" />
+      <div class="card-body">
+        <h3>Hidden Islands to Visit in Autumn</h3>
+        <p>Quiet spots with great food and slower pace — perfect for reset trips.</p>
+        <div class="meta">Jul 30 • 5 min</div>
+      </div>
+    </article>
+
+    <article class="card" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=600&q=80" alt="Business People" />
+      <div class="card-body">
+        <h3>Startup Culture: Tips for Success</h3>
+        <p>Insights into the fast-moving startup world and how to thrive in it.</p>
+        <div class="meta">Jun 15 • 7 min</div>
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    © 2025 Daily Dispatch
+  </footer>
+</body>
+</html>

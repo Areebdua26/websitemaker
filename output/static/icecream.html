@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ice Cream Delight</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff6b81;
+      --secondary: #7b68ee;
+      --accent: #ffd700;
+      --dark: #1f1f1f;
+      --light: #fffafc;
+      --text: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fffafc 0%, #ffeef2 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: var(--dark);
+      padding: 20px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 15px 40px;
+      background: rgba(31, 31, 31, 0.95);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .logo i {
+      color: var(--primary);
+      animation: spin 8s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    nav a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:hover:after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+    background: url('images/icecream2.JPG') no-repeat center center/cover;
+ 
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero-content {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards 0.5s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h2 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--secondary);
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn:hover:before {
+      left: 0;
+    }
+
+    .btn:hover {
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Menu Section */
+    .section-title {
+      text-align: center;
+      margin: 100px 0 30px;
+      font-size: 2.5rem;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background: var(--accent);
+      margin: 15px auto;
+      border-radius: 2px;
+    }
+
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .category-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cat-btn {
+      padding: 10px 25px;
+      background: white;
+      border: 2px solid var(--primary);
+      border-radius: 30px;
+      color: var(--primary);
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cat-btn.active, .cat-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 107, 129, 0.3);
+    }
+
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-item {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: itemAppear 0.5s ease forwards;
+    }
+
+    @keyframes itemAppear {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .menu-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .menu-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .item-content {
+      padding: 25px;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .item-name {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: var(--dark);
+    }
+
+    .item-price {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.3rem;
+      background: #ffeff1;
+      padding: 5px 15px;
+      border-radius: 20px;
+    }
+
+    .item-desc {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .flavor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .flavor-tag {
+      background: #f0f0f0;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    .popular {
+      position: relative;
+    }
+
+    .popular:before {
+      content: 'BESTSELLER';
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--accent);
+      color: var(--dark);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: var(--dark);
+      color: white;
+      padding: 60px 20px 30px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: 20px 0;
+    }
+
+    .contact-info div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-icons {
+      margin: 25px 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-5px);
+      background: var(--secondary);
+    }
+
+    .hours {
+      margin: 20px 0;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .hours h4 {
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .floating {
+      animation: float 5s ease-in-out infinite;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+      }
+      
+      nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+      
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .menu-items {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <i class="fas fa-ice-cream"></i>
+      <span>Ice Cream Delight</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#milkshakes">Milkshakes</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Welcome to Ice Cream Paradise</h2>
+      <p>Indulge in our delicious handmade ice creams and refreshing milkshakes</p>
+      <a href="#menu" class="btn">Explore Our Menu</a>
+    </div>
+  </section>
+
+  <section id="menu" class="menu-container">
+    <h2 class="section-title">Our Delicious Menu</h2>
+    
+    <div class="category-buttons">
+      <button class="cat-btn active" data-category="all">All Items</button>
+      <button class="cat-btn" data-category="icecream">Ice Creams</button>
+      <button class="cat-btn" data-category="milkshake">Milkshakes</button>
+      <button class="cat-btn" data-category="special">Specialty</button>
+    </div>
+    
+    <div class="menu-items">
+      <div class="menu-item popular" data-category="icecream">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Vanilla Ice Cream">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Vanilla Dream</span>
+            <span class="item-price">£4.50</span>
+          </div>
+          <p class="item-desc">Creamy vanilla bean ice cream made with Madagascar vanilla.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Creamy</span>
+            <span class="flavor-tag">Classic</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-item" data-category="icecream">
+        <img src="https://images.unsplash.com/photo-1516042433723-4c1c73249cb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Chocolate Ice Cream">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Chocolate Fantasy</span>
+            <span class="item-price">£4.75</span>
+          </div>
+          <p class="item-desc">Rich chocolate ice cream with dark chocolate chunks.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Chocolate</span>
+            <span class="flavor-tag">Rich</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-item popular" data-category="icecream">
+        <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Strawberry Ice Cream">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Strawberry Bliss</span>
+            <span class="item-price">£5.00</span>
+          </div>
+          <p class="item-desc">Fresh strawberry ice cream with real fruit pieces.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Fruity</span>
+            <span class="flavor-tag">Refreshing</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-item popular" data-category="special">
+        <img src="https://images.unsplash.com/photo-1622944236015-14c8d8d86124?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Cookie Dough Ice Cream">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Cookie Dough Delight</span>
+            <span class="item-price">£5.50</span>
+          </div>
+          <p class="item-desc">Vanilla ice cream with chunks of chocolate chip cookie dough.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Sweet</span>
+            <span class="flavor-tag">Crunchy</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-item" data-category="special">
+        <img src="https://images.unsplash.com/photo-1610737241329-37c6d5ececae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Pistachio Ice Cream">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Pistachio Paradise</span>
+            <span class="item-price">£5.25</span>
+          </div>
+          <p class="item-desc">Creamy pistachio ice cream with roasted pistachio pieces.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Nutty</span>
+            <span class="flavor-tag">Creamy</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-item" data-category="special">
+        <img src="https://images.unsplash.com/photo-1530089711124-9ca31c57d5bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Mint Chocolate Chip Ice Cream">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Mint Chocolate Chip</span>
+            <span class="item-price">£5.00</span>
+          </div>
+          <p class="item-desc">Refreshing mint ice cream with dark chocolate chips.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Refreshing</span>
+            <span class="flavor-tag">Chocolate</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-item popular" data-category="milkshake">
+        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Chocolate Milkshake">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Chocolate Thunder</span>
+            <span class="item-price">£6.50</span>
+          </div>
+          <p class="item-desc">Rich chocolate milkshake topped with whipped cream and chocolate sauce.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Chocolate</span>
+            <span class="flavor-tag">Indulgent</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-item" data-category="milkshake">
+        <img src="images/icecream.JPG" alt="Strawberry Milkshake">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Strawberry Blast</span>
+            <span class="item-price">£6.25</span>
+          </div>
+          <p class="item-desc">Creamy strawberry milkshake with fresh strawberries and whipped cream.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Fruity</span>
+            <span class="flavor-tag">Creamy</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-item" data-category="milkshake">
+        <img src="images/icecream1.JPG" alt="Vanilla Milkshake">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Vanilla Cloud</span>
+            <span class="item-price">£5.75</span>
+          </div>
+          <p class="item-desc">Classic vanilla milkshake with vanilla bean ice cream and whipped cream.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Classic</span>
+            <span class="flavor-tag">Creamy</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="menu-item" data-category="milkshake">
+        <img src="images/MILKSHAKE.JPG" alt="Oreo Milkshake">
+        <div class="item-content">
+          <div class="item-header">
+            <span class="item-name">Cookies & Cream</span>
+            <span class="item-price">£6.75</span>
+          </div>
+          <p class="item-desc">Vanilla ice cream blended with Oreo cookies, topped with more cookies.</p>
+          <div class="flavor-tags">
+            <span class="flavor-tag">Cookie</span>
+            <span class="flavor-tag">Crunchy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <h3>Ice Cream Delight</h3>
+      <div class="contact-info">
+        <div><i class="fas fa-map-marker-alt"></i> 123 Sweet Street, London</div>
+        <div><i class="fas fa-phone"></i> (020) 7123 4567</div>
+        <div><i class="fas fa-envelope"></i> info@icecreamdelight.com</div>
+      </div>
+      
+      <div class="hours">
+        <h4>Opening Hours</h4>
+        <p>Monday - Friday: 12:00 - 22:00</p>
+        <p>Saturday - Sunday: 11:00 - 23:00</p>
+      </div>
+      
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+      
+      <p>&copy; 2023 Ice Cream Delight. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Menu category filtering
+    document.addEventListener('DOMContentLoaded', function() {
+      const categoryButtons = document.querySelectorAll('.cat-btn');
+      const menuItems = document.querySelectorAll('.menu-item');
+      
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          categoryButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+          
+          // Get category to filter by
+          const category = button.getAttribute('data-category');
+          
+          // Show/hide menu items based on category
+          menuItems.forEach(item => {
+            if (category === 'all' || item.getAttribute('data-category') === category) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // Animate menu items on scroll
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = 'itemAppear 0.5s ease forwards';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      // Observe each menu item
+      menuItems.forEach(item => {
+        observer.observe(item);
+      });
+    });
+  </script>
+</body>
+</html>

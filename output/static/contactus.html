@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        header {
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .description {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .email-section {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 30px 0;
+            color: white;
+        }
+        
+        .email-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .email-link {
+            display: inline-block;
+            font-size: 1.8rem;
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border: 3px solid white;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+        
+        .email-link:hover {
+            background: white;
+            color: #2575fc;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .instructions {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+        
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #34495e;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: #2575fc;
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .email-link {
+                font-size: 1.4rem;
+                padding: 12px 30px;
+            }
+            
+            .description {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .email-link {
+                font-size: 1.2rem;
+                padding: 10px 25px;
+            }
+            
+            .email-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Get In Touch With Me</h1>
+            <p class="description">I'd love to hear from you! Feel free to reach out via email for any inquiries, collaborations, or just to say hello.</p>
+        </header>
+        
+        <div class="email-section">
+            <h2 class="email-title">Send me an email</h2>
+            <a href="mailto:areebdua@outlook.com" class="email-link">
+                <i class="fas fa-envelope"></i> areebdua@outlook.com
+            </a>
+            <p>Clicking this link will open your default email client</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to send an email:</h3>
+            <ol>
+                <li>Click on the email address above</li>
+                <li>Your default email application will open with a new message addressed to me</li>
+                <li>Write your message in the email body</li>
+                <li>Click send to deliver your message directly to my inbox</li>
+            </ol>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" class="social-link">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        
+        <footer>
+            <p>© 2023 | Designed with <i class="fas fa-heart" style="color: #e74c3c;"></i></p>
+        </footer>
+    </div>
+</body>
+</html>

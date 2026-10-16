@@ -1,0 +1,63 @@
+/* Reset & base */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  color: white;
+  line-height: 1.6;
+  min-height: 100vh;
+  /* Background Image with overlay */
+  background: 
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Content container */
+.content {
+  max-width: 800px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+}
+
+.content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.content p {
+  font-size: 22px;
+  margin-bottom: 35px;
+  color: #ddd;
+}
+
+.btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 14px 40px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(255,111,97,0.6);
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e65549;
+}
+

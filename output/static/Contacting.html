@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Style Contact Pages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            color: #2c3e50;
+            font-size: 2.5rem;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-page {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-page:hover {
+            transform: translateY(-5px);
+        }
+        
+        .page-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        /* Style 1: Minimalist */
+        .minimalist .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .minimalist input, 
+        .minimalist textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            background: transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .minimalist input:focus, 
+        .minimalist textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .minimalist button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        /* Style 2: Modern Card */
+        .modern-card {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+        
+        .modern-card .page-title {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .modern-card input, 
+        .modern-card textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .modern-card button {
+            background: #ff7e5f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        /* Style 3: Dark Theme */
+        .dark-theme {
+            background: #2c3e50;
+            color: #ecf0f1;
+        }
+        
+        .dark-theme .page-title {
+            border-bottom-color: #34495e;
+        }
+        
+        .dark-theme input, 
+        .dark-theme textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #34495e;
+            border-radius: 4px;
+            background: #34495e;
+            color: #ecf0f1;
+        }
+        
+        .dark-theme button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        /* Style 4: Colorful */
+        .colorful .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .colorful label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #e74c3c;
+        }
+        
+        .colorful input, 
+        .colorful textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        
+        .colorful input:focus, 
+        .colorful textarea:focus {
+            border-color: #e74c3c;
+            outline: none;
+        }
+        
+        .colorful button {
+            background: linear-gradient(to right, #e74c3c, #e67e22);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        /* Style 5: Professional */
+        .professional {
+            background: #f8f9fa;
+            border-left: 5px solid #2c3e50;
+        }
+        
+        .professional .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .professional label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .professional input, 
+        .professional textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        .professional button {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        /* Style 6: Creative */
+        .creative {
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .creative::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+        
+        .creative .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .creative input, 
+        .creative textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 0;
+            background: #f9f9f9;
+            transition: all 0.3s;
+        }
+        
+        .creative input:focus, 
+        .creative textarea:focus {
+            background: #fff;
+            border-color: #ff7e5f;
+            outline: none;
+        }
+        
+        .creative button {
+            background: #ff7e5f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .creative button:hover {
+            background: #feb47b;
+        }
+        
+        /* Style 7: Social Media Focused */
+        .social-focused .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-focused .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #3498db;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s;
+        }
+        
+        .social-focused .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .social-focused .social-icons a:nth-child(1) { background: #3b5998; }
+        .social-focused .social-icons a:nth-child(2) { background: #1da1f2; }
+        .social-focused .social-icons a:nth-child(3) { background: #0077b5; }
+        .social-focused .social-icons a:nth-child(4) { background: #bd081c; }
+        
+        .social-focused .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .social-focused input, 
+        .social-focused textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .social-focused button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        /* Style 8: Elegant */
+        .elegant {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .elegant .page-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .elegant .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .elegant input, 
+        .elegant textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            background: #fafafa;
+            font-family: 'Georgia', serif;
+        }
+        
+        .elegant button {
+            background: #fff;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .elegant button:hover {
+            background: #333;
+            color: #fff;
+        }
+        
+        /* Style 9: Background Image */
+        .bg-image {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516387938699-a93567ec168e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+            background-size: cover;
+            color: white;
+        }
+        
+        .bg-image .page-title {
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .bg-image input, 
+        .bg-image textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .bg-image button {
+            background: #f39c12;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        /* Style 10: Futuristic */
+        .futuristic {
+            background: #0f1c2d;
+            color: #64ffda;
+            border: 1px solid #64ffda;
+        }
+        
+        .futuristic .page-title {
+            border-bottom-color: #64ffda;
+        }
+        
+        .futuristic .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .futuristic input, 
+        .futuristic textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #64ffda;
+            border-radius: 0;
+            background: transparent;
+            color: #64ffda;
+        }
+        
+        .futuristic input:focus, 
+        .futuristic textarea:focus {
+            outline: none;
+            box-shadow: 0 0 10px #64ffda;
+        }
+        
+        .futuristic button {
+            background: transparent;
+            color: #64ffda;
+            border: 1px solid #64ffda;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .futuristic button:hover {
+            background: #64ffda;
+            color: #0f1c2d;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>10 Different Style Contact Pages</h1>
+    
+    <div class="container">
+        <!-- Style 1: Minimalist -->
+        <div class="contact-page minimalist">
+            <h2 class="page-title">Minimalist Style</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Style 2: Modern Card -->
+        <div class="contact-page modern-card">
+            <h2 class="page-title">Modern Card Style</h2>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea rows="4" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Style 3: Dark Theme -->
+        <div class="contact-page dark-theme">
+            <h2 class="page-title">Dark Theme</h2>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea rows="4" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Style 4: Colorful -->
+        <div class="contact-page colorful">
+            <h2 class="page-title">Colorful Style</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" rows="4"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Style 5: Professional -->
+        <div class="contact-page professional">
+            <h2 class="page-title">Professional Style</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name5">Full Name</label>
+                    <input type="text" id="name5">
+                </div>
+                <div class="form-group">
+                    <label for="email5">Email Address</label>
+                    <input type="email" id="email5">
+                </div>
+                <div class="form-group">
+                    <label for="message5">Your Message</label>
+                    <textarea id="message5" rows="4"></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        <!-- Style 6: Creative -->
+        <div class="contact-page creative">
+            <h2 class="page-title">Creative Style</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Style 7: Social Media Focused -->
+        <div class="contact-page social-focused">
+            <h2 class="page-title">Connect With Us</h2>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea rows="4" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Style 8: Elegant -->
+        <div class="contact-page elegant">
+            <h2 class="page-title">Get In Touch</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Style 9: Background Image -->
+        <div class="contact-page bg-image">
+            <h2 class="page-title">Reach Out To Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea rows="4" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        <!-- Style 10: Futuristic -->
+        <div class="contact-page futuristic">
+            <h2 class="page-title">Future Contact</h2>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

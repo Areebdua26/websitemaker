@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Areeb Dua | AI-Powered Web Designer 2025</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* 2025 Light Futuristic Color Scheme */
+    :root {
+      --primary: #6C5CE7;
+      --secondary: #00CEFF;
+      --accent: #FF3E80;
+      --dark: #2D2D4E;
+      --light: #FFFFFF;
+      --background: #F8F9FA;
+      --text: #333333;
+      --text-light: #666666;
+      --neon: #00F5A0;
+      --glass: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(255, 255, 255, 0.9);
+      --dark-glass: rgba(248, 249, 250, 0.9);
+      --success: #00C853;
+      --warning: #FFAB00;
+      --error: #FF5252;
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      padding-top: 80px; /* Added to prevent content from being hidden behind fixed navbar */
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* Navigation Bar - Futuristic Glassmorphism */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 0.8rem 5%;
+      background: var(--dark-glass);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+
+    .logo::after {
+      content: '2025';
+      position: absolute;
+      top: -8px;
+      right: -30px;
+      font-size: 0.8rem;
+      color: var(--neon);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--neon);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--light);
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 0 25px rgba(108, 92, 231, 0.3);
+      position: relative;
+      overflow: hidden;
+      border: none;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .nav-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+      z-index: 1;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px rgba(108, 92, 231, 0.4);
+    }
+
+    .nav-cta:hover::before {
+      left: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--dark);
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    /* Futuristic Glassmorphism Effect */
+    .glass-card {
+      background: var(--glass);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--glass-border);
+      transition: all 0.4s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Header Section - Futuristic Hero */
+    header {
+      background: linear-gradient(135deg, var(--background) 0%, #E6E6F0 100%);
+      color: var(--dark);
+      padding: 12rem 2rem 8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(108, 92, 231, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(0, 206, 255, 0.1) 0%, transparent 30%);
+    }
+
+    .hero-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      background: var(--neon);
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 15s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
+    }
+
+    .profile-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 2rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 5px;
+      box-shadow: 0 0 40px rgba(108, 92, 231, 0.3);
+      animation: pulse 4s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 30px rgba(108, 92, 231, 0.3); }
+      50% { box-shadow: 0 0 60px rgba(0, 206, 255, 0.4); }
+      100% { box-shadow: 0 0 30px rgba(108, 92, 231, 0.3); }
+    }
+
+    .profile {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--background);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--text-light);
+    }
+
+    .ai-badge {
+      display: inline-block;
+      background: rgba(0, 245, 160, 0.15);
+      color: var(--neon);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      border: 1px solid var(--neon);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .social-links a {
+      color: var(--dark);
+      font-size: 1.5rem;
+      transition: all 0.3s;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .social-links a:hover {
+      transform: translateY(-5px);
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 5px 25px rgba(108, 92, 231, 0.3);
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--dark);
+      font-size: 1.8rem;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-20px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+    }
+
+    /* Main Content Layout */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--neon);
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about {
+      padding: 3.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .about p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .tech-item {
+      background: rgba(108, 92, 231, 0.1);
+      color: var(--primary);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(108, 92, 231, 0.2);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Services Section */
+    .services {
+      padding: 3.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      padding: 2.5rem 2rem;
+      border-left: 4px solid var(--neon);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      background: rgba(108, 92, 231, 0.05);
+    }
+
+    .service-card h3 {
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .service-card h3 i {
+      color: var(--neon);
+      font-size: 1.8rem;
+    }
+
+    .service-card p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* Mission Section */
+    .mission {
+      padding: 3.5rem;
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.05) 0%, rgba(0, 206, 255, 0.05) 100%);
+      margin-bottom: 3rem;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 245, 160, 0.03) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .mission-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Benefits Section - Futuristic Vertical Timeline */
+    .benefits {
+      padding: 4rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .benefits-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .benefit-item {
+      padding: 2rem 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .benefit-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 25px;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--neon), transparent);
+      opacity: 0.2;
+    }
+
+    .benefit-content {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .benefit-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(0, 245, 160, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neon);
+      font-size: 1.2rem;
+      border: 1px solid var(--neon);
+      flex-shrink: 0;
+    }
+
+    .benefit-text h3 {
+      color: var(--dark);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .benefit-text p {
+      color: var(--text-light);
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 3.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      overflow: hidden;
+      position: relative;
+      border-radius: 20px;
+      aspect-ratio: 16/9;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      color: white;
+      padding: 2rem 1.5rem 1.5rem;
+      transform: translateY(0);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .project-overlay h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      color: var(--light);
+    }
+
+    .project-overlay p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-tag {
+      background: rgba(108, 92, 231, 0.5);
+      color: var(--light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-link.live {
+      background: var(--neon);
+      color: var(--dark);
+    }
+
+    .project-link.code {
+      background: transparent;
+      color: var(--light);
+      border: 1px solid var(--light);
+    }
+
+    .project-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 3.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 62, 128, 0.03) 0%, transparent 70%);
+      animation: rotate 30s linear infinite reverse;
+      z-index: -1;
+    }
+
+    .contact p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: var(--text-light);
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--light);
+      padding: 1.2rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(108, 92, 231, 0.3);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      position: relative;
+      overflow: hidden;
+      border: none;
+    }
+
+    .contact-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
+    }
+
+    .contact-btn:hover::before {
+      left: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(248, 249, 250, 0.9);
+      color: var(--text);
+      text-align: center;
+      padding: 3rem 2rem;
+      position: relative;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--dark);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 1.05rem;
+      position: relative;
+    }
+
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--neon);
+      transition: width 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-links a:hover::after {
+      width: 100%;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-social a {
+      color: var(--dark);
+      font-size: 1.5rem;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-social a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+    }
+
+    .copyright {
+      opacity: 0.7;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .ai-powered {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--neon);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 3rem;
+      }
+      
+      .tagline {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--dark-glass);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 6rem 2rem;
+        z-index: 1000;
+      }
+      
+      .nav-links.active {
+        display: flex;
+      }
+      
+      .nav-links a {
+        font-size: 1.5rem;
+        padding: 0.5rem 0;
+        color: var(--dark);
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      header {
+        padding: 10rem 1rem 8rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .about, .services, .mission, .benefits, .projects, .contact {
+        padding: 2.5rem 1.5rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .service-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .benefit-item:not(:last-child)::after {
+        left: 20px;
+      }
+
+      .benefit-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+
+      .benefit-text h3 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .tagline {
+        font-size: 1.1rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .profile-container {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .benefit-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .benefit-item:not(:last-child)::after {
+        left: 20px;
+        height: calc(100% - 40px);
+        top: 40px;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 {
+      transition-delay: 0.2s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.4s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.6s;
+    }
+    .delay-4 {
+      transition-delay: 0.8s;
+    }
+
+    .scroll-button {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .scroll-button:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+    }
+    .explore-projects-btn {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(45deg, #6e48aa, #9d50bb);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="logo">ADwebGraphics</a>
+    <div class="nav-links" id="navLinks">
+      <a href="portfolio.html" class="fade-in">Home</a>
+      <a href="#about" class="fade-in">About</a>
+      <a href="#services" class="fade-in delay-1">Services</a>
+      <a href="#projects" class="fade-in delay-2">Projects</a>
+      <a href="contactus.html" class="fade-in delay-3">Contact</a>
+      <a href="pricing.html" class="fade-in delay-4">Price</a>
+    </div>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- Header Section -->
+  <header>
+    <div class="hero-particles"></div>
+    <div class="profile-container">
+      <img src="https://via.placeholder.com/180" alt="Areeb Dua" class="profile">
+    </div>
+    <h1>AI-Enhanced Web Experiences</h1>
+    <p class="tagline">Frontend Web Designer helping people get online with confidence in the AI era</p>
+
+    <div class="social-links">
+      <a href="#" aria-label="facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    <a href="#about" class="scroll-down" aria-label="Scroll down"><i class="fas fa-chevron-down"></i></a>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- About Section -->
+    <section id="about" class="about glass-card fade-in">
+      <h2 class="section-title">About Me</h2>
+      <p>Hi, I'm Areeb Dua — a passionate frontend web designer dedicated to helping people get online with confidence in the AI-powered digital landscape of 2025.</p>
+      <p>I design and build simple, stylish, and fully responsive websites using cutting-edge technologies combined with AI enhancements to deliver exceptional user experiences.</p>
+      <p>Whether you're a freelancer, a local business owner, or someone launching a new idea — I can help you turn that idea into a beautiful, functional website that stands out in today's competitive market.</p>
+      
+      <div class="tech-stack">
+        <span class="tech-item">HTML5</span>
+        <span class="tech-item">CSS3</span>
+        <span class="tech-item">JavaScript</span>
+        <span class="tech-item">AI Integration</span>
+        <span class="tech-item">Responsive Design</span>
+        <span class="tech-item">React</span>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services glass-card fade-in delay-1">
+      <h2 class="section-title">My Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3><i class="fas fa-rocket"></i> AI-Optimized Landing Pages</h3>
+          <p>Clean, single-page designs enhanced with AI personalization to maximize conversions and highlight your product or service.</p>
+        </div>
+        <div class="service-card">
+          <h3><i class="fas fa-briefcase"></i> Interactive Portfolios</h3>
+          <p>Showcase your work in a modern, engaging format with AI-driven content recommendations and dynamic layouts.</p>
+        </div>
+        <div class="service-card">
+          <h3><i class="fas fa-building"></i> Next-Gen Business Sites</h3>
+          <p>AI-enhanced multi-page websites with smart content delivery tailored for small businesses and personal brands.</p>
+        </div>
+
+        <div class="service-card">
+          <h3><i class="fas fa-robot"></i> Smart Contact Systems</h3>
+          <p>Intelligent contact solutions that engage visitors with natural language processing and automated responses.</p>
+        </div>
+        <div class="service-card">
+          <h3><i class="fas fa-layer-group"></i> Immersive Layouts</h3>
+          <p>Structured web pages with parallax effects, micro-interactions, and AI-driven content organization.</p>
+        </div>
+        <div class="service-card">
+          <h3><i class="fas fa-calendar-alt"></i> Corporate Websites</h3>
+          <p>Dynamic pages for corporate websites with AI-powered scheduling, recommendations, and personalized attendee experiences.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Explore Projects Button -->
+    <div class="explore-projects-btn">
+      <a href="#projects" class="btn">Explore Projects</a>
+    </div>
+
+    <!-- Mission Section -->
+    <section class="mission glass-card fade-in delay-2">
+      <div class="mission-content">
+        <h2 class="section-title">My Mission</h2>
+        <p>In 2025, having a website isn't enough — you need an intelligent, adaptive digital presence. I bridge the gap between cutting-edge AI technology and human-centered design.</p>
+        <p>Many feel overwhelmed by modern web development. My goal is to make the process simple, personal, and future-proof. I combine technical expertise with creative vision to build websites that not only look great today but evolve with tomorrow's technologies.</p>
+      </div>
+    </section>
+
+    <!-- Why Choose Me Section -->
+    <section class="benefits glass-card fade-in delay-3">
+      <h2 class="section-title">Why Work With Me?</h2>
+      <div class="benefits-container">
+        <div class="benefit-item">
+          <div class="benefit-content">
+            <div class="benefit-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>AI-Enhanced Communication</h3>
+              <p>Smart project tracking with automated updates and predictive scheduling for seamless collaboration.</p>
+            </div>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-content">
+            <div class="benefit-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>Future-Ready Design</h3>
+              <p>Unique designs that incorporate emerging trends while maintaining timeless appeal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-content">
+            <div class="benefit-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>Adaptive Responsiveness</h3>
+              <p>Layouts that intelligently adapt to any device, screen size, or interaction mode.</p>
+            </div>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-content">
+            <div class="benefit-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>AI-Optimized Performance</h3>
+              <p>Smart asset loading and code optimization for lightning-fast experiences.</p>
+            </div>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-content">
+            <div class="benefit-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>Predictive UX</h3>
+              <p>Interfaces that learn from user behavior to deliver increasingly personalized experiences.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects glass-card">
+      <h2 class="section-title">My Projects</h2>
+      <p>Explore my portfolio of AI-enhanced web experiences that showcase the future of frontend development:</p>
+      <br>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="images/Bloggingplatforms.PNG" alt="Smart Blogs">
+          <div class="project-overlay">
+            <h3>AI Blog Platform</h3>
+            <p>Blog platform with AI-powered recommendations and content generation.</p>
+            <div class="project-tags">
+              <span class="project-tag">Vue</span>
+              <span class="project-tag">AI</span>
+              <span class="project-tag">CMS</span>
+            </div>
+            <div class="project-links">
+              <a href="blogexp.html" class="project-link live">View Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="images/contacts.WEBP" alt="AI Contact">
+          <div class="project-overlay">
+            <h3>Smart Contact System</h3>
+            <p>Intelligent contact page with contextual understanding.</p>
+            <div class="project-tags">                           
+              <span class="project-tag">AI</span>
+            </div>
+            <div class="project-links">
+              <a href="contactus.html" class="project-link live">View Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="images/best-corporate-website-designs.PNG" alt="Coperate Websites">
+          <div class="project-overlay">
+            <h3>Corporate Websites</h3>
+            <p>Smart Corporate Website with automated scheduling and matchmaking.</p>
+            <div class="project-tags">
+              <span class="project-tag">Corporate Website</span>
+            </div>
+            <div class="project-links">
+              <a href="Corporatewebsite.html" class="project-link live">View website demos</a>
+<a href="Coperating.html" class="project-link live">View website demos</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="images/create-a-landing-page-for-your-project.JPG" alt="Landing pages">
+          <div class="project-overlay">
+            <h3>Landing pages</h3>
+            <p>Intelligent landing pages with contextual understanding.</p>
+            <div class="project-tags">                           
+              <span class="project-tag">AI</span>
+            </div>
+            <div class="project-links">
+              <a href="services.html" class="project-link live">View Demo 1</a>
+              <a href="portfolioproject.html" class="project-link live">View Demo 2</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="images/Business1.JPG" alt="Business Site">
+          <div class="project-overlay">
+            <h3>Business</h3>
+            <p>Business website with intelligent content personalization.</p>
+            <div class="project-tags">
+              <span class="project-tag">Business</span>
+              <span class="project-tag">Personalization</span>
+              <span class="project-tag">Next.js</span>
+            </div>
+            <div class="project-links">
+              <a href="portfolioexample.html" class="project-link live">View Demo 1</a>
+              <a href="websiteafter.html" class="project-link live">View Demo 2</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <img src="images/Design-Layout.PNG" alt="Layouts">
+          <div class="project-overlay">
+            <h3>Layouts</h3>
+            <p>Interactive layouts with AI-powered project recommendations.</p>
+            <div class="project-tags">
+           <span class="project-tag">AI</span>
+              <span class="project-tag">Animation</span>
+            </div>
+            <div class="project-links">
+              <a href="layout1.html" class="project-link live">View Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>      
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact glass-card">
+      <h2 class="section-title">Ready for the Future?</h2>
+      <p>Let's build something extraordinary together. Get in touch to discuss how AI-enhanced web design can transform your online presence in 2025.</p>
+      <a href="mailto:contact:areebdua@outlook.com" class="contact-btn">Contact us</a>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">Areeb Dua</div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="copyright">© 2025 Areeb Dua | AI-Powered Web Designer</p>
+      <p class="ai-powered">Enhanced with Artificial Intelligence</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    // Observe all fade-in elements
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Particle Generator
+    function createParticles() {
+      const container = document.querySelector('.hero-particles');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random size between 2px and 6px
+        const size = Math.random() * 4 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        // Random animation duration
+        const duration = Math.random() * 20 + 10;
+        particle.style.animationDuration = `${duration}s`;
+        
+        // Random delay
+        particle.style.animationDelay = `${Math.random() * 10}s`;
+        
+        container.appendChild(particle);
+      }
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        if (this.getAttribute('href') === '#') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Initialize particles when DOM is loaded
+    document.addEventListener('DOMContentLoaded', createParticles);
+  </script>
+</body>
+</html>
